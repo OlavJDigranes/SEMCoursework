@@ -1,9 +1,5 @@
 Coursework for SET08103 SEM, for Napier University.
 
-This project's kanban board including product backlog is publicly visible at this link:
-https://trello.com/b/MCu3hYJz/kanban-board
-
-
 # Software Engineering Methods
 
 - Master Build Status [![Build Status](https://travis-ci.com/OlavJDigranes/SEMCoursework.svg?branch=master)](https://travis-ci.com/OlavJDigranes/SEMCoursework)
@@ -37,7 +33,13 @@ I will do the best I can.
 I will challenge anyone who does not demonstrate these standards.
 
 
+# Kanban Board
+
+This project's kanban board including product backlog is publicly visible at this link:
+https://trello.com/b/MCu3hYJz/kanban-board
+
+
 # Individual Contributions
 
-See the link below:
+See this link:
 https://docs.google.com/spreadsheets/d/1VteoCgc0TrnrnjdS98yjZbkRHUnDDi3LZbL8dBZc1WM/edit?usp=sharing
