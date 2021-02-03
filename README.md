@@ -1,4 +1,4 @@
-Coursework for SET08103 SEM, for Napier University.
+Coursework for SET08103 SEM, for Napier University .
 
 # Software Engineering Methods
 
