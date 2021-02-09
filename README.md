@@ -39,6 +39,25 @@ This project's kanban board including product backlog is publicly visible at thi
 https://trello.com/b/MCu3hYJz/kanban-board
 
 
+# Product Backlog
+
+- Discuss Java project requirements as a team and form an action plan.
+- Ensure correct use of branches.
+- Assess compliance of continuous integration.
+- Add issues being used on GitHub.
+- Define tasks as user stories.
+- Project integrated with Zube.io.
+- Correct Kanban/Project Board being used.
+- Sprint Boards being used.
+- Full use cases defined.
+- Use case diagram created.
+- Suitable unit tests defined.
+- Suitable integration tests defined.
+- Tests running on Travis CI.
+- Deployment working.
+- Bug reporting system set-up.
+
+
 # Individual Contributions
 
 See this link:
