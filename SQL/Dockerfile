@@ -14,7 +14,16 @@
 #CMD ["echo", "-----------------------------------------> ...Finished Dockerfile commands."]
 
 
-FROM openjdk:latest
-COPY ./target/TestJavaProject_JBT-0.1.0.2-jar-with-dependencies.jar /tmp
-WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "TestJavaProject_JBT-0.1.0.2-jar-with-dependencies.jar"]
+# Use the latest MySQL image
+FROM mysql
+# Set the working directory
+WORKDIR /tmpSQL
+# Copy all the files to the working directory of the container
+COPY ./SQL/*.sql /tmp/
+COPY ./SQL/*.dump /tmp/
+# Copy the main SQL file to docker-entrypoint-initdb.d.
+# Scripts and SQL files in this folder are executed on container startup.
+# This is specific to MySQL.
+COPY ./SQL/world.sql /docker-entrypoint-initdb.d
+# Set the root password
+ENV MYSQL_ROOT_PASSWORD example
