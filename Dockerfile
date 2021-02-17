@@ -16,6 +16,6 @@
 
 FROM openjdk:latest
 # Ensure both this and the ENTRYPOINT target the right .jar file in your ./target/ folder.
-COPY TestJavaProject_JBT/target/TestJavaProject_JBT-0.1.0.2-jar-with-dependencies.jar /tmp
+COPY ./target/seMethods-0.1.0.1-jar-with-dependencies.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "TestJavaProject_JBT-0.1.0.2-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "seMethods-0.1.0.1-jar-with-dependencies.jar"]
