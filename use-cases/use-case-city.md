@@ -4,7 +4,23 @@
 
 ### Goal in Context
 
-Produce an ordered report of the cities in the world, continent or region.
+As a WHO HR advisor, I want to produce the following reports:
+
+1. All the cities in the world organised by largest population to smallest.
+2. All the cities in a continent organised by largest population to smallest.
+3. All the cities in a region organised by largest population to smallest.
+4. All the cities in a country organised by largest population to smallest.
+5. All the cities in a district organised by largest population to smallest.
+6. The top N populated cities in the world where N is provided by the user.
+7. The top N populated cities in a continent where N is provided by the user.
+8. The top N populated cities in a region where N is provided by the user.
+9. The top N populated cities in a country where N is provided by the user.
+10. The top N populated cities in a district where N is provided by the user.
+11. All the capital cities in the world organised by largest population to smallest.
+12. All the capital cities in a continent organised by largest population to smallest.
+13. All the capital cities in a region organised by largest to smallest.
+
+in order to help the WHO monitor population sizes in all the cities.
 
 ### Scope
 
@@ -28,7 +44,7 @@ An empty or unordered list or an error message.
 
 ### Primary Actor
 
-WHO Employee.
+WHO HR Advisor.
 
 ### Trigger
 
