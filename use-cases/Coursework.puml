@@ -6,7 +6,7 @@ rectangle Database
 rectangle "Information System"{
     usecase UC1 as "Get all countries in the world"
 
-    usecase UCa as "Print countries"
+    usecase UCa as "Print countries by largest to smallest population"
 
     WHO - UC1
     UC1 ..> UCa : include
