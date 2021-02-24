@@ -1,0 +1,25 @@
+@startuml
+actor WHO as "WHO Advisor"
+
+rectangle Database
+
+rectangle "Information System"{
+    usecase UC1 as "Produce country reports"
+    usecase UC2 as "Produce city reports"
+    usecase UC3 as "Produce people reports"
+
+    usecase UCa as "Print report"
+    usecase UCb as "Print report"
+    usecase UCc as "Print report"
+
+    WHO - UC1
+    UC1 - UC2
+    UC2 - UC3
+    UC3 - Database
+
+    UC1 ..> UCa : include
+    UC2 ..> UCb : include
+    UC3 ..> UCc : include
+
+}
+@enduml
