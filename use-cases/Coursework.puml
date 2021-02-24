@@ -4,13 +4,16 @@ actor WHO as "WHO Advisor"
 rectangle Database
 
 rectangle "Information System"{
-    usecase UC1 as "Get all countries in the world"
+    usecase UC1 as "Produce country reports"
 
-    usecase UCa as "Print countries by largest to smallest population"
+    usecase UC2 as "Produce city reports"
+
+    usecase UC3 as "Produce region reports"
 
     WHO - UC1
-    UC1 ..> UCa : include
-    UC1 - Database
+    UC1 - UC2
+    UC2 - UC3
+    UC3 - Database
 
 }
 @enduml
