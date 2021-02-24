@@ -4,7 +4,7 @@
 
 ### Goal in Context
 
-As a WHO HR advisor, I want to produce the following reports:
+As a WHO Statistical advisor, I want to produce the following reports:
 
 1. All the cities in the world organised by largest population to smallest.
 2. All the cities in a continent organised by largest population to smallest.
@@ -24,7 +24,7 @@ in order to help the WHO monitor population sizes in the specified cities.
 
 ### Scope
 
-Java program.
+WHO Department of Statistics
 
 ### Level
 
