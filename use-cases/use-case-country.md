@@ -4,7 +4,16 @@
 
 ### Goal in Context
 
-Produce an ordered report of the countries in the world, continent or region.
+As a WHO HR advisor, I want to produce the following reports:
+
+1. All the countries in the world organised by largest population to smallest.
+2. All the countries in a continent organised by largest population to smallest.
+3. All the countries in a region organised by largest population to smallest.
+4. The top N populated countries in the world where N is provided by the user.
+5. The top N populated countries in a continent where N is provided by the user.
+6. The top N populated countries in a region where N is provided by the user.
+
+in order to help the WHO monitor population size in the specified countries.
 
 ### Scope
 
@@ -28,7 +37,7 @@ An empty or unordered list or an error message.
 
 ### Primary Actor
 
-WHO Employee.
+WHO HR Advisor.
 
 ### Trigger
 
