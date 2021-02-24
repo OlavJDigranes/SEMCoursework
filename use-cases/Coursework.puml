@@ -1,0 +1,16 @@
+@startuml
+actor WHO as "WHO Advisor"
+
+rectangle Database
+
+rectangle "Information System"{
+    usecase UC1 as "Get all countries in the world"
+
+    usecase UCa as "Print countries"
+
+    WHO - UC1
+    UC1 ..> UCa : include
+    UC1 - Database
+
+}
+@enduml
