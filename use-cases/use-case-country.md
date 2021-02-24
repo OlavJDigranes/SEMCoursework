@@ -4,7 +4,7 @@
 
 ### Goal in Context
 
-Produce an ordered report of the countries of the world
+Produce an ordered report of the countries in the world
 
 ### Scope
 
