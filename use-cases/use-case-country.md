@@ -44,7 +44,7 @@ Request for information.
 ## EXTENSIONS
 
 2. No information given, database is not working:
-        i. Reconnect to database.
+i. Reconnect to database.
 
 ## SUB-VARIATIONS
 
