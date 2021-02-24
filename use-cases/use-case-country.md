@@ -4,7 +4,7 @@
 
 ### Goal in Context
 
-As a WHO HR advisor, I want to produce the following reports:
+As a WHO Statistical advisor, I want to produce the following reports:
 
 1. All the countries in the world organised by largest population to smallest.
 2. All the countries in a continent organised by largest population to smallest.
@@ -17,7 +17,7 @@ in order to help the WHO monitor population size in the specified countries.
 
 ### Scope
 
-WHO HR Department.
+WHO Statistics Department.
 
 ### Level
 
