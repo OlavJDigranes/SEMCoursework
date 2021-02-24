@@ -17,7 +17,7 @@ in order to help the WHO monitor population size in the specified countries.
 
 ### Scope
 
-Java program.
+WHO HR Department.
 
 ### Level
 
