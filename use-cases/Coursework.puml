@@ -6,7 +6,7 @@ rectangle Database
 rectangle "Information System"{
     usecase UC1 as "Produce country reports"
     usecase UC2 as "Produce city reports"
-    usecase UC3 as "Produce region reports"
+    usecase UC3 as "Produce people reports"
 
     usecase UCa as "Print report"
     usecase UCb as "Print report"
