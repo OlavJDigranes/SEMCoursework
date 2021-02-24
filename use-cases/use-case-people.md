@@ -4,7 +4,7 @@
 
 ### Goal in Context
 
-As a WHO HR advisor, I want to produce the following reports:
+As a WHO Statistical advisor, I want to produce the following reports:
 
 1. The population of people, people living in cities, and people not living in cities in each continent.
 2. The population of people, people living in cities, and people not living in cities in each region.
@@ -14,7 +14,7 @@ in order for the WHO to monitor population of people living in cities or not liv
 
 ### Scope
 
-Java program.
+WHO Department of Statistics
 
 ### Level
 
