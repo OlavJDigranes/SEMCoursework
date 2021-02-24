@@ -4,7 +4,13 @@
 
 ### Goal in Context
 
-Produce the number of people living in a city or a country or a region.
+As a WHO HR advisor, I want to produce the following reports:
+
+1. The population of people, people living in cities, and people not living in cities in each continent.
+2. The population of people, people living in cities, and people not living in cities in each region.
+3. The population of people, people living in cities, and people not living in cities in each country.
+
+in order for the WHO to monitor population of people living in cities or not living in cities.
 
 ### Scope
 
@@ -28,7 +34,7 @@ Zero or incorrect number or an error message.
 
 ### Primary Actor
 
-WHO Employee.
+WHO HR Advisor.
 
 ### Trigger
 
