@@ -20,7 +20,7 @@ As a WHO HR advisor, I want to produce the following reports:
 12. All the capital cities in a continent organised by largest population to smallest.
 13. All the capital cities in a region organised by largest to smallest.
 
-in order to help the WHO monitor population sizes in all the cities.
+in order to help the WHO monitor population sizes in the specified cities.
 
 ### Scope
 
