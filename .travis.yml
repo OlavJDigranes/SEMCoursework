@@ -12,7 +12,7 @@ services:
 install:
   - docker build -t database sql/.
   - docker run --rm -d -e MYSQL_ROOT_PASSWORD=example -p 33060:3306 database
-  - mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -DfailIfNoTests=false -B -V
 
 before_script:
   - mvn clean
