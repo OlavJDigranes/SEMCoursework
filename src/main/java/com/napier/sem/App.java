@@ -15,6 +15,7 @@ public class App {
         db.getCity(con);
         //db.displayCity(c);
         db.disconnect();
+
     }
 
 }
