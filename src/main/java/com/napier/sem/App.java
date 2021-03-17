@@ -11,7 +11,7 @@ public class App {
     public static void main(String[] args)
     {
         Sql db = new Sql();
-        Connection con = db.connect("localhost:33060");
+        Connection con = db.connect();
         db.getCity(con);
         //db.displayCity(c);
         db.disconnect();
