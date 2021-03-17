@@ -12,8 +12,8 @@ public class App {
     {
         Sql db = new Sql();
         Connection con = db.connect();
-        City c = db.getCity(con);
-        db.displayCity(c);
+        db.getCity(con);
+        //db.displayCity(c);
         db.disconnect();
     }
 

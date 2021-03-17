@@ -68,45 +68,36 @@ public class Sql {
         return null;
     }
 
-    public City getCity(Connection con){
+    public void getCity(Connection con){
         try{
             Statement stmt = con.createStatement();
 
-            String strSelect = "SELECT * " +
-                    "FROM city"
-                    + " WHERE ID = 3";
+            String strSelect = "SELECT " +
+                    "  name " +
+                    "  ,population " +
+                    "FROM " +
+                    "  city " +
+                    "ORDER BY " +
+                    "  population DESC;";
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            if(rset.next()){
+            while(rset.next()){
                 City city = new City();
-                city.ID = rset.getInt("ID");
+                //city.ID = rset.getInt("ID");
                 city.name = rset.getString("Name");
-                city.country = rset.getString("CountryCode");
-                city.district = rset.getString("District");
+                //city.country = rset.getString("CountryCode");
+                //city.district = rset.getString("District");
                 city.population = rset.getInt("Population");
-                return city;
-            }else{
-                return null;
+
+                System.out.println(city.name + " " + city.population);
             }
         }
         catch (Exception e){
             System.out.println(e.getMessage());
             System.out.println("Failed to get city");
-            return null;
         }
     }
 
-    public void displayCity(City city){
-        if (city != null){
-            System.out.println(
-                    city.ID + " "
-                            + city.name + " "
-                            + city.country + " "
-                            + city.district + " "
-                            + city.population + " "
-            );
-        }
-    }
     public void disconnect()
     {
         if(con != null)
