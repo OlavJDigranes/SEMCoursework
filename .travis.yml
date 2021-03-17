@@ -18,4 +18,4 @@ before_script:
   - mvn clean
 
 script:
-  - mvn test -Dtest=com.napier.sem.AppTest
+  - mvn test -Dtest=com.napier.sem.UnitTests
