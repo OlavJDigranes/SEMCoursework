@@ -81,8 +81,8 @@ public class Sql {
                     "  population DESC;";
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            int counter = 0; //For  test purposes
-            while(rset.next() && counter < 1){
+
+            while(rset.next()){
                 City city = new City();
                 //city.ID = rset.getInt("ID");
                 city.name = rset.getString("Name");
@@ -91,7 +91,6 @@ public class Sql {
                 city.population = rset.getInt("Population");
 
                 System.out.println(city.name + " " + city.population);
-                counter++;
             }
         }
         catch (Exception e){
