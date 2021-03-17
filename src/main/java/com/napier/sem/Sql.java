@@ -6,14 +6,14 @@ public class Sql {
     /**
      * Connection to MySQL database
      */
-    //private Connection con = null;
+    private Connection con = null;
 
     /**
      * Connect to the MySQL database.
      */
     public Connection connect()
     {
-        Connection con = null;
+        //Connection con = null;
         try
         {
             // Load Database driver
@@ -73,7 +73,8 @@ public class Sql {
             Statement stmt = con.createStatement();
 
             String strSelect = "SELECT * " +
-                    "FROM city";
+                    "FROM city"
+                    + " WHERE ID = 3";
             ResultSet rset = stmt.executeQuery(strSelect);
 
             if(rset.next()){
@@ -108,7 +109,6 @@ public class Sql {
     }
     public void disconnect()
     {
-        Connection con = connect();
         if(con != null)
         {
             try
