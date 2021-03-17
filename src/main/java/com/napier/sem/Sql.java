@@ -6,13 +6,14 @@ public class Sql {
     /**
      * Connection to MySQL database
      */
-    private Connection con = null;
+    //private Connection con = null;
 
     /**
      * Connect to the MySQL database.
      */
-    public void connect()
+    public Connection connect()
     {
+        Connection con = null;
         try
         {
             // Load Database driver
@@ -39,7 +40,7 @@ public class Sql {
                 // Wait a bit
                 Thread.sleep(10000);
                 // Exit for loop
-                break;
+                return con;
             }
             catch (SQLException sqle)
             {
@@ -64,10 +65,50 @@ public class Sql {
                 System.out.println("Error closing connection to database");
             }
         }
+        return null;
     }
 
+    public City getCity(Connection con){
+        try{
+            Statement stmt = con.createStatement();
+
+            String strSelect = "SELECT * " +
+                    "FROM city";
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            if(rset.next()){
+                City city = new City();
+                city.ID = rset.getInt("ID");
+                city.name = rset.getString("Name");
+                city.country = rset.getString("CountryCode");
+                city.district = rset.getString("District");
+                city.population = rset.getInt("Population");
+                return city;
+            }else{
+                return null;
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city");
+            return null;
+        }
+    }
+
+    public void displayCity(City city){
+        if (city != null){
+            System.out.println(
+                    city.ID + " "
+                            + city.name + " "
+                            + city.country + " "
+                            + city.district + " "
+                            + city.population + " "
+            );
+        }
+    }
     public void disconnect()
     {
+        Connection con = connect();
         if(con != null)
         {
             try
@@ -82,4 +123,6 @@ public class Sql {
         }
 
     }
+
+
 }
