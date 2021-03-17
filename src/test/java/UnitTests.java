@@ -5,6 +5,6 @@ public class UnitTests {
     @Test
     void unitTest()
     {
-        assertEquals(5, 4);
+        assertEquals(5, 5);
     }
 }
