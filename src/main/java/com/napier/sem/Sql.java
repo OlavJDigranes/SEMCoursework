@@ -1,10 +1,7 @@
 package com.napier.sem;
 
-import jdk.internal.vm.compiler.collections.Pair;
-
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Sql {
     /**
@@ -168,9 +165,9 @@ public class Sql {
      * This method is a stub for unit testing. Put code in here to fulfil the requirements of the test.
      * @param con
      * @param continent This method should take a continent name as a String argument.
-     * @return This method should return a Pair of the urban population and the rural population in that order.
+     * @return This method should return an ArrayList containing 2 values corresponding to the urban population and the rural population in that order.
      */
-    public Pair<Long, Long> getPopulationUrbanRuralContinent(Connection con, String continent) {
+    public ArrayList<Long> getPopulationUrbanRuralContinent(Connection con, String continent) {
         return null;
     }
 
@@ -178,9 +175,9 @@ public class Sql {
      * This method is a stub for unit testing. Put code in here to fulfil the requirements of the test.
      * @param con
      * @param region This method should take a region name as a String argument.
-     * @return This method should return a Pair of the urban population and the rural population in that order.
+     * @return This method should return an ArrayList containing 2 values corresponding to the urban population and the rural population in that order.
      */
-    public Pair<Long, Long> getPopulationUrbanRuralRegion(Connection con, String region) {
+    public ArrayList<Long> getPopulationUrbanRuralRegion(Connection con, String region) {
         return null;
     }
 
@@ -188,9 +185,9 @@ public class Sql {
      * This method is a stub for unit testing. Put code in here to fulfil the requirements of the test.
      * @param con
      * @param country This method should take a country name as a String argument.
-     * @return This method should return a Pair of the urban population and the rural population in that order.
+     * @return This method should return an ArrayList containing 2 values corresponding to the urban population and the rural population in that order.
      */
-    public Pair<Long, Long> getPopulationUrbanRuralCountry(Connection con, String country) {
+    public ArrayList<Long> getPopulationUrbanRuralCountry(Connection con, String country) {
         return null;
     }
 

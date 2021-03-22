@@ -1,4 +1,3 @@
-import jdk.internal.vm.compiler.collections.Pair;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import com.napier.sem.*;
@@ -108,45 +107,45 @@ public class UnitTests {
     void testPopulationUrbanRuralContinent() {
         // Normal input
             // Arrange & Act
-            Pair<Long, Long> returnValue = db.getPopulationUrbanRuralContinent(con, "Asia");
+            ArrayList<Long> returnValue = db.getPopulationUrbanRuralContinent(con, "Asia");
             // Assert
-            assertEquals(returnValue.getLeft(), 697604103);
-            assertEquals(returnValue.getRight(), 3007421597L); // In java we need to specify a long integer constant with an 'L' suffix.
+            assertEquals(returnValue.get(0), 697604103);
+            assertEquals(returnValue.get(1), 3007421597L); // In java we need to specify a long integer constant with an 'L' suffix.
             // Act
             returnValue = db.getPopulationUrbanRuralContinent(con, "Africa");
             // Assert
-            assertEquals(returnValue.getLeft(), 135838579);
-            assertEquals(returnValue.getRight(), 648636421);
+            assertEquals(returnValue.get(0), 135838579);
+            assertEquals(returnValue.get(1), 648636421);
     }
 
     @Test
     void testPopulationUrbanRuralRegion() {
         // Normal input
             // Arrange & Act
-            Pair<Long, Long> returnValue = db.getPopulationUrbanRuralRegion(con, "Eastern Asia");
+            ArrayList<Long> returnValue = db.getPopulationUrbanRuralRegion(con, "Eastern Asia");
             // Assert
-            assertEquals(returnValue.getLeft(), 317476534);
-            assertEquals(returnValue.getRight(), 1189851466);
+            assertEquals(returnValue.get(0), 317476534);
+            assertEquals(returnValue.get(1), 1189851466);
             // Act
             returnValue = db.getPopulationUrbanRuralRegion(con, "Micronesia");
             // Assert
-            assertEquals(returnValue.getLeft(), 102329);
-            assertEquals(returnValue.getRight(), 440671);
+            assertEquals(returnValue.get(0), 102329);
+            assertEquals(returnValue.get(1), 440671);
     }
 
     @Test
     void testPopulationUrbanRuralCountry() {
         // Normal input
             // Arrange & Act
-            Pair<Long, Long> returnValue = db.getPopulationUrbanRuralCountry(con, "China");
+            ArrayList<Long> returnValue = db.getPopulationUrbanRuralCountry(con, "China");
             // Assert
-            assertEquals(returnValue.getLeft(), 175953614);
-            assertEquals(returnValue.getRight(), 1101604386);
+            assertEquals(returnValue.get(0), 175953614);
+            assertEquals(returnValue.get(1), 1101604386);
             // Act
             returnValue = db.getPopulationUrbanRuralCountry(con, "Montserrat");
             // Assert
-            assertEquals(returnValue.getLeft(), 2000);
-            assertEquals(returnValue.getRight(), 9000);
+            assertEquals(returnValue.get(0), 2000);
+            assertEquals(returnValue.get(1), 9000);
     }
 
     @Test
