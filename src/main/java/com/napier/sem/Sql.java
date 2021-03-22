@@ -120,12 +120,17 @@ public class Sql {
 
     }
 
+
+    // For all methods below:
+    //      The method should check for known bad inputs and fix them or return immediately.
+    //      If they return bad input nonetheless they should return either a null or -1.
+
     /**
      * This method is a stub for unit testing. Put code in here to fulfil the requirements of the test.
      * @param con
      * @return This method should return an ArrayList of all cities in the world.
      */
-    public ArrayList<City> getCapitalCitiesWorld(Connection con) {
+    public ArrayList<City> getCapitalCitiesWorld(Connection con, int N) {
         return null;
     }
 
@@ -135,7 +140,7 @@ public class Sql {
      * @param continent This method should take a continent name as a String argument.
      * @return This method should return an ArrayList of all cities in the continent.
      */
-    public ArrayList<City> getCapitalCitiesContinent(Connection con, String continent) {
+    public ArrayList<City> getCapitalCitiesContinent(Connection con, String continent, int N) {
         return null;
     }
 
@@ -145,7 +150,7 @@ public class Sql {
      * @param region This method should take a region name as a String argument.
      * @return This method should return an ArrayList of all cities in the region.
      */
-    public ArrayList<City> getCapitalCitiesRegion(Connection con, String region) {
+    public ArrayList<City> getCapitalCitiesRegion(Connection con, String region, int N) {
         return null;
     }
 
@@ -165,7 +170,7 @@ public class Sql {
      * @param continent This method should take a continent name as a String argument.
      * @return This method should return a Pair of the urban population and the rural population in that order.
      */
-    public Pair<Integer, Integer> getPopulationUrbanRuralContinent(Connection con, String continent) {
+    public Pair<Long, Long> getPopulationUrbanRuralContinent(Connection con, String continent) {
         return null;
     }
 
@@ -175,7 +180,7 @@ public class Sql {
      * @param region This method should take a region name as a String argument.
      * @return This method should return a Pair of the urban population and the rural population in that order.
      */
-    public Pair<Integer, Integer> getPopulationUrbanRuralRegion(Connection con, String region) {
+    public Pair<Long, Long> getPopulationUrbanRuralRegion(Connection con, String region) {
         return null;
     }
 
@@ -185,16 +190,16 @@ public class Sql {
      * @param country This method should take a country name as a String argument.
      * @return This method should return a Pair of the urban population and the rural population in that order.
      */
-    public Pair<Integer, Integer> getPopulationUrbanRuralCountry(Connection con, String country) {
+    public Pair<Long, Long> getPopulationUrbanRuralCountry(Connection con, String country) {
         return null;
     }
 
     /**
      * This method is a stub for unit testing. Put code in here to fulfil the requirements of the test.
      * @param con
-     * @return This method should return the int population of the world.
+     * @return This method should return the long population of the world.
      */
-    public int getPopulationWorld(Connection con) {
+    public long getPopulationWorld(Connection con) {
         return 0;
     }
 
@@ -202,9 +207,9 @@ public class Sql {
      * This method is a stub for unit testing. Put code in here to fulfil the requirements of the test.
      * @param con
      * @param continent This method should take a continent name as a String argument.
-     * @return This method should return the int population of the world.
+     * @return This method should return the long population of the world.
      */
-    public int getPopulationContinent(Connection con, String continent) {
+    public long getPopulationContinent(Connection con, String continent) {
         return 0;
     }
 
@@ -312,7 +317,7 @@ public class Sql {
      * @param con
      * @return This method should return an ArrayList of all countries in the world in descending order of population.
      */
-    public ArrayList<Country> getCountriesByPopulationWorld(Connection con) {
+    public ArrayList<Country> getCountriesByPopulationWorld(Connection con, int N) {
         return null;
     }
 
@@ -322,21 +327,17 @@ public class Sql {
      * @param continent This method should take a continent name as a String argument.
      * @return This method should return an ArrayList of all countries in a continent in descending order of population.
      */
-    public ArrayList<Country> getCountriesByPopulationRegion(Connection con, String continent) {
+    public ArrayList<Country> getCountriesByPopulationContinent(Connection con, String continent, int N) {
         return null;
     }
 
     /**
      * This method is a stub for unit testing. Put code in here to fulfil the requirements of the test.
      * @param con
-     * @param district This method should take a district name as a String argument.
-     * @return This method should return an ArrayList of all countries in a district in descending order of population.
+     * @param region This method should take a region name as a String argument.
+     * @return This method should return an ArrayList of all countries in a region in descending order of population.
      */
-    public ArrayList<Country> getCountriesByPopulationDistrict(Connection con, String district) {
+    public ArrayList<Country> getCountriesByPopulationRegion(Connection con, String region, int N) {
         return null;
     }
-
-
-
-
 }
