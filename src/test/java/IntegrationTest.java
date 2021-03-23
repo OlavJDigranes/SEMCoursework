@@ -34,21 +34,21 @@ public class IntegrationTest {
     void testGetCountry()
     {
         Country country = app.getCountry(con);
-        assertEquals(country.Code, "AUS");
-        assertEquals(country.Name, "Australia");
-        assertEquals(country.Continent, "Oceania");
-        assertEquals(country.Region, "Australia and New Zealand");
-        assertEquals(country.SurfaceArea, 7741220.00);
-        assertEquals(country.IndepYear, 1901);
-        assertEquals(country.Population, 18886000);
-        assertEquals(country.LifeExpectancy, 79.9);
-        assertEquals(country.GNP, 351182.00);
-        assertEquals(country.GNPOld, 392911.00);
-        assertEquals(country.LocalName, "Australia");
-        assertEquals(country.GovernmentForm, "Constitutional Monarchy, Federation");
-        assertEquals(country.HeadOfState, "Elisabeth II");
-        assertEquals(country.Capital, 135);
-        assertEquals(country.Code2, "AU");
+        assertEquals(country.Code, "ABW");
+        assertEquals(country.Name, "Aruba");
+        assertEquals(country.Continent, "North America");
+        assertEquals(country.Region, "Caribbean");
+        assertEquals(country.SurfaceArea, 193.00);
+        assertEquals(country.IndepYear, "");
+        assertEquals(country.Population, 103000);
+        assertEquals(country.LifeExpectancy, 78.4);
+        assertEquals(country.GNP, 828.00);
+        assertEquals(country.GNPOld, 793.00);
+        assertEquals(country.LocalName, "Aruba");
+        assertEquals(country.GovernmentForm, "Nonmetropolitan Territory of The Netherlands");
+        assertEquals(country.HeadOfState, "Beatrix");
+        assertEquals(country.Capital, 129);
+        assertEquals(country.Code2, "AW");
     }
 
     @Test
