@@ -54,6 +54,10 @@ public class IntegrationTest {
     @Test
     void testGetCountryLanguage()
     {
-
+        CountryLanguage countryLanguage = app.getCountryLanguage(con);
+        assertEquals(countryLanguage.CountryCode, "ABW");
+        assertEquals(countryLanguage.Language, "Dutch");
+        assertEquals(countryLanguage.IsOfficial, true);
+        assertEquals(countryLanguage.Percentage, 5.3);
     }
 }

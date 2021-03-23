@@ -71,7 +71,6 @@ public class Sql {
 
     public City getCity(Connection con)
     {
-        City city = new City();
         try
         {
             Statement stmt = con.createStatement();
@@ -82,13 +81,14 @@ public class Sql {
                     "FROM " +
                     "  city " +
                     "ORDER BY " +
-                    "  population DESC;";
+                    "  population DESC " +
+                    "LIMIT 1;";
             ResultSet rset = stmt.executeQuery(strSelect);
 
 
             while(rset.next())
             {
-
+                City city = new City();
                 city.ID = rset.getInt("ID");
                 city.name = rset.getString("Name");
                 city.country = rset.getString("CountryCode");
@@ -96,6 +96,7 @@ public class Sql {
                 city.population = rset.getInt("Population");
 
                 System.out.println(city.name + " " + city.population);
+                return city;
             }
         }
         catch (Exception e)
@@ -104,12 +105,10 @@ public class Sql {
             System.out.println("Failed to get city");
             return null;
         }
-        return city;
     }
 
     public Country getCountry(Connection con)
     {
-        Country country = new Country();
         try
         {
             Statement stmt = con.createStatement();
@@ -120,11 +119,13 @@ public class Sql {
                     "FROM " +
                     "  country " +
                     "ORDER BY " +
-                    "  population DESC;";
+                    "  population DESC " +
+                    "LIMIT 1;";
             ResultSet rset = stmt.executeQuery(strSelect);
 
             while (rset.next())
             {
+                Country country = new Country();
                 country.Code = rset.getString("Code");
                 country.Name = rset.getString("Name");
                 country.Continent = rset.getString("Continent");
@@ -138,8 +139,11 @@ public class Sql {
                 country.LocalName = rset.getString("LocalName");
                 country.GovernmentForm = rset.getString("GovernmentForm");
                 country.HeadOfState = rset.getString("HeadOfState");
-                country.Capital = rset.getInt("Caputal");
+                country.Capital = rset.getInt("Capital");
                 country.Code2 = rset.getString("Code2");
+
+                System.out.println(country.Name + " " + country.Population);
+                return country;
             }
         }
         catch (Exception e)
@@ -148,20 +152,59 @@ public class Sql {
             System.out.println("Failed to get country");
             return null;
         }
-        return country;
     }
 
-    public void getCountryLanguage(Connection con)
+    public CountryLanguage getCountryLanguage(Connection con)
     {
-        CountryLanguage countryLanguage = new CountryLanguage();
         try
         {
             Statement stmt = con.createStatement();
+
+            String strSelect = "SELECT " +
+                    "  language " +
+                    "  ,sum(language_speakers) AS speakers " +
+                    "  ,((sum(language_speakers) / (SELECT " +
+                    "    sum(population) " +
+                    "FROM " +
+                    "  ( " +
+                    "  SELECT " +
+                    "    country.name AS name " +
+                    "    ,countrylanguage.language AS language " +
+                    "    ,countrylanguage.percentage AS percentage " +
+                    "    ,country.population AS total_population " +
+                    "    ,FLOOR(country.population*(countrylanguage.percentage/100)) AS language_speakers " +
+                    "  FROM " +
+                    "    (countrylanguage JOIN country ON countrylanguage.countrycode=country.code) " +
+                    "  WHERE " +
+                    "    countrylanguage.percentage > 0 " +
+                    "  ORDER BY " +
+                    "    (country.population*(countrylanguage.percentage/100)) DESC " +
+                    "  ) languageSpeakers " +
+                    "WHERE " +
+                    "  language LIKE \"Chinese\" OR language LIKE \"English\" OR language LIKE \"Hindi\" OR language LIKE \"Spanish\" OR language LIKE \"Arabic\" " +
+                    "GROUP BY " +
+                    "  language " +
+                    "ORDER BY " +
+                    "  sum(language_speakers) DESC " +
+                    "LIMIT 1;";
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            while (rset.next())
+            {
+                CountryLanguage countryLanguage = new CountryLanguage();
+                countryLanguage.CountryCode = rset.getString("CountryCode");
+                countryLanguage.Language = rset.getString("Language");
+                countryLanguage.IsOfficial = rset.getBoolean("IsOfficial");
+                countryLanguage.Percentage = rset.getFloat("Percentage");
+                System.out.println(countryLanguage.CountryCode + " " + countryLanguage.Language);
+                return countryLanguage;
+            }
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country");
+            return null;
         }
     }
 
