@@ -69,8 +69,10 @@ public class Sql {
         return null;
     }
 
-    public void getCity(Connection con){
-        try{
+    public City getCity(Connection con)
+    {
+        try
+        {
             Statement stmt = con.createStatement();
 
             String strSelect = "SELECT " +
@@ -83,20 +85,50 @@ public class Sql {
             ResultSet rset = stmt.executeQuery(strSelect);
 
 
-            while(rset.next()){
+            while(rset.next())
+            {
                 City city = new City();
-                //city.ID = rset.getInt("ID");
+                city.ID = rset.getInt("ID");
                 city.name = rset.getString("Name");
-                //city.country = rset.getString("CountryCode");
-                //city.district = rset.getString("District");
+                city.country = rset.getString("CountryCode");
+                city.district = rset.getString("District");
                 city.population = rset.getInt("Population");
 
                 System.out.println(city.name + " " + city.population);
+                return city;
             }
         }
-        catch (Exception e){
+        catch (Exception e)
+        {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city");
+        }
+        return null;
+    }
+
+    public void getCountry(Connection con)
+    {
+        try
+        {
+            Statement stmt = con.createStatement();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country");
+        }
+    }
+
+    public void getCountryLanguage(Connection con)
+    {
+        try
+        {
+            Statement stmt = con.createStatement();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country");
         }
     }
 

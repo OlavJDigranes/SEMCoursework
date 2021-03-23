@@ -20,8 +20,14 @@ public class IntegrationTest {
     }
 
     @Test
-    void testGetCity(){
-
+    void testGetCity()
+    {
+        City city = app.getCity(con);
+        assertEquals(city.ID, 1);
+        assertEquals(city.name, "Kabul");
+        assertEquals(city.country, "AFG");
+        assertEquals(city.district, "Kabol");
+        assertEquals(city.population, 1780000);
     }
 
     @Test
