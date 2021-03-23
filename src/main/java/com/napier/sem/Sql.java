@@ -105,6 +105,7 @@ public class Sql {
             System.out.println("Failed to get city");
             return null;
         }
+        return null;
     }
 
     public Country getCountry(Connection con)
@@ -152,6 +153,7 @@ public class Sql {
             System.out.println("Failed to get country");
             return null;
         }
+        return null;
     }
 
     public CountryLanguage getCountryLanguage(Connection con)
@@ -206,6 +208,7 @@ public class Sql {
             System.out.println("Failed to get country");
             return null;
         }
+        return null;
     }
 
     public void disconnect()
