@@ -102,8 +102,8 @@ public class Sql {
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city");
+            return null;
         }
-        return null;
     }
 
     public void getCountry(Connection con)
