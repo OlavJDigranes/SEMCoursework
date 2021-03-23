@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class Country {
 
-    public int Code;
+    public String Code;
     public String Name;
     public String Continent;
     public String Region;
@@ -18,6 +18,6 @@ public class Country {
     public String GovernmentForm;
     public String HeadOfState;
     public int Capital;
-    public int Code2;
+    public String Code2;
 
 }

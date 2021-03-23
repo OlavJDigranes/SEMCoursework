@@ -31,12 +31,29 @@ public class IntegrationTest {
     }
 
     @Test
-    void testGetCountry(){
-
+    void testGetCountry()
+    {
+        Country country = app.getCountry(con);
+        assertEquals(country.Code, "AUS");
+        assertEquals(country.Name, "Australia");
+        assertEquals(country.Continent, "Oceania");
+        assertEquals(country.Region, "Australia and New Zealand");
+        assertEquals(country.SurfaceArea, 7741220.00);
+        assertEquals(country.IndepYear, 1901);
+        assertEquals(country.Population, 18886000);
+        assertEquals(country.LifeExpectancy, 79.9);
+        assertEquals(country.GNP, 351182.00);
+        assertEquals(country.GNPOld, 392911.00);
+        assertEquals(country.LocalName, "Australia");
+        assertEquals(country.GovernmentForm, "Constitutional Monarchy, Federation");
+        assertEquals(country.HeadOfState, "Elisabeth II");
+        assertEquals(country.Capital, 135);
+        assertEquals(country.Code2, "AU");
     }
 
     @Test
-    void testGetCountryLanguage(){
+    void testGetCountryLanguage()
+    {
 
     }
 }

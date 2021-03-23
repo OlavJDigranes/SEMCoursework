@@ -71,6 +71,7 @@ public class Sql {
 
     public City getCity(Connection con)
     {
+        City city = new City();
         try
         {
             Statement stmt = con.createStatement();
@@ -87,7 +88,7 @@ public class Sql {
 
             while(rset.next())
             {
-                City city = new City();
+
                 city.ID = rset.getInt("ID");
                 city.name = rset.getString("Name");
                 city.country = rset.getString("CountryCode");
@@ -95,7 +96,6 @@ public class Sql {
                 city.population = rset.getInt("Population");
 
                 System.out.println(city.name + " " + city.population);
-                return city;
             }
         }
         catch (Exception e)
@@ -104,23 +104,56 @@ public class Sql {
             System.out.println("Failed to get city");
             return null;
         }
+        return city;
     }
 
-    public void getCountry(Connection con)
+    public Country getCountry(Connection con)
     {
+        Country country = new Country();
         try
         {
             Statement stmt = con.createStatement();
+
+            String strSelect = "SELECT " +
+                    "  name " +
+                    "  ,population " +
+                    "FROM " +
+                    "  country " +
+                    "ORDER BY " +
+                    "  population DESC;";
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            while (rset.next())
+            {
+                country.Code = rset.getString("Code");
+                country.Name = rset.getString("Name");
+                country.Continent = rset.getString("Continent");
+                country.Region = rset.getString("Region");
+                country.SurfaceArea = rset.getFloat("SurfaceArea");
+                country.IndepYear = rset.getInt("IndepYear");
+                country.Population = rset.getInt("Population");
+                country.LifeExpectancy = rset.getFloat("LifeExpectancy");
+                country.GNP = rset.getFloat("GNP");
+                country.GNPOld = rset.getFloat("GNPOld");
+                country.LocalName = rset.getString("LocalName");
+                country.GovernmentForm = rset.getString("GovernmentForm");
+                country.HeadOfState = rset.getString("HeadOfState");
+                country.Capital = rset.getInt("Caputal");
+                country.Code2 = rset.getString("Code2");
+            }
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country");
+            return null;
         }
+        return country;
     }
 
     public void getCountryLanguage(Connection con)
     {
+        CountryLanguage countryLanguage = new CountryLanguage();
         try
         {
             Statement stmt = con.createStatement();
