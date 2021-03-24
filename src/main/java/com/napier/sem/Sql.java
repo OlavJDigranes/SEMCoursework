@@ -10,6 +10,7 @@ public class Sql {
     private Connection con = null;
 
     /**
+     * @param location This string will contain the location of the database (local or server)
      * Connect to the MySQL database.
      */
     public Connection connect(String location)
@@ -27,14 +28,14 @@ public class Sql {
         }
 
         // Connection to the database
-        int retries = 10;
+        int retries = 2;
         for (int i = 0; i < retries; ++i)
         {
             System.out.println("Connecting to database...");
             try
             {
                 // Wait a bit for db to start set to 30000 for travis
-                Thread.sleep(30000);
+                //Thread.sleep(30000);
                 // Connect to database
                 con = DriverManager.getConnection("jdbc:mysql://" + location + "/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
@@ -69,6 +70,10 @@ public class Sql {
         return null;
     }
 
+    /**
+     * @param con
+     * @return Returns a city by querying the database with an already-given query.
+     */
     public City getCity(Connection con)
     {
         try
@@ -89,10 +94,7 @@ public class Sql {
             while(rset.next())
             {
                 City city = new City();
-                city.ID = rset.getInt("ID");
                 city.name = rset.getString("Name");
-                city.country = rset.getString("CountryCode");
-                city.district = rset.getString("District");
                 city.population = rset.getInt("Population");
 
                 System.out.println(city.name + " " + city.population);
@@ -108,6 +110,10 @@ public class Sql {
         return null;
     }
 
+    /**
+     * @param con
+     * @return Returns a country by querying the database with an already-given query.
+     */
     public Country getCountry(Connection con)
     {
         try
@@ -127,21 +133,8 @@ public class Sql {
             while (rset.next())
             {
                 Country country = new Country();
-                country.Code = rset.getString("Code");
                 country.Name = rset.getString("Name");
-                country.Continent = rset.getString("Continent");
-                country.Region = rset.getString("Region");
-                country.SurfaceArea = rset.getFloat("SurfaceArea");
-                country.IndepYear = rset.getInt("IndepYear");
                 country.Population = rset.getInt("Population");
-                country.LifeExpectancy = rset.getFloat("LifeExpectancy");
-                country.GNP = rset.getFloat("GNP");
-                country.GNPOld = rset.getFloat("GNPOld");
-                country.LocalName = rset.getString("LocalName");
-                country.GovernmentForm = rset.getString("GovernmentForm");
-                country.HeadOfState = rset.getString("HeadOfState");
-                country.Capital = rset.getInt("Capital");
-                country.Code2 = rset.getString("Code2");
 
                 System.out.println(country.Name + " " + country.Population);
                 return country;
@@ -156,6 +149,10 @@ public class Sql {
         return null;
     }
 
+    /**
+     * @param con
+     * @return Returns a city by querying the database with an already-given query.
+     */
     public CountryLanguage getCountryLanguage(Connection con)
     {
         try
@@ -164,41 +161,16 @@ public class Sql {
 
             String strSelect = "SELECT " +
                     "  language " +
-                    "  ,sum(language_speakers) AS speakers " +
-                    "  ,((sum(language_speakers) / (SELECT " +
-                    "    sum(population) " +
                     "FROM " +
-                    "  ( " +
-                    "  SELECT " +
-                    "    country.name AS name " +
-                    "    ,countrylanguage.language AS language " +
-                    "    ,countrylanguage.percentage AS percentage " +
-                    "    ,country.population AS total_population " +
-                    "    ,FLOOR(country.population*(countrylanguage.percentage/100)) AS language_speakers " +
-                    "  FROM " +
-                    "    (countrylanguage JOIN country ON countrylanguage.countrycode=country.code) " +
-                    "  WHERE " +
-                    "    countrylanguage.percentage > 0 " +
-                    "  ORDER BY " +
-                    "    (country.population*(countrylanguage.percentage/100)) DESC " +
-                    "  ) languageSpeakers " +
-                    "WHERE " +
-                    "  language LIKE \"Chinese\" OR language LIKE \"English\" OR language LIKE \"Hindi\" OR language LIKE \"Spanish\" OR language LIKE \"Arabic\" " +
-                    "GROUP BY " +
-                    "  language " +
-                    "ORDER BY " +
-                    "  sum(language_speakers) DESC " +
+                    "  countrylanguage " +
                     "LIMIT 1;";
             ResultSet rset = stmt.executeQuery(strSelect);
 
             while (rset.next())
             {
                 CountryLanguage countryLanguage = new CountryLanguage();
-                countryLanguage.CountryCode = rset.getString("CountryCode");
                 countryLanguage.Language = rset.getString("Language");
-                countryLanguage.IsOfficial = rset.getBoolean("IsOfficial");
-                countryLanguage.Percentage = rset.getFloat("Percentage");
-                System.out.println(countryLanguage.CountryCode + " " + countryLanguage.Language);
+                System.out.println(countryLanguage.Language);
                 return countryLanguage;
             }
         }
@@ -211,6 +183,9 @@ public class Sql {
         return null;
     }
 
+    /**
+     * Disconnects the sql database
+     */
     public void disconnect()
     {
         if(con != null)
